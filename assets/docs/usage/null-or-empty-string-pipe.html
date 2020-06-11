@@ -1,0 +1,27 @@
+<p>The NullOrEmptyStringPipe pipe is used to quickly check a string variable for a value, and supply an alternate if it is empty. For this pipe, empty means either an empty string, a whitespace only string, <code>null</code>, or <code>undefined</code>.</p>
+<h4>API</h4>
+<pre><code class="language-ts">transform(value: string, altText: string): string
+</code></pre>
+<p><code>value</code>: the <code>string</code> value to evaluate</p>
+<p><code>altText</code>: the alternate value to return if the string is empty</p>
+<h4>Importing the NullOrEmptyStringPipe Pipe</h4>
+<p>To use the <code>NullOrEmptyStringPipe</code>, import the <code>NullOrEmptyStringPipeModule</code> into your app's <code>CashmereModule</code> (which in turn is imported into your app):</p>
+<pre><code class="language-ts">import {NgModule} from '@angular/core';
+import {NullOrEmptyStringPipeModule} from '@healthcatalyst/cashmere';
+
+@NgModule({
+    exports: [NullOrEmptyStringPipeModule]
+})
+export class CashmereModule {}
+</code></pre>
+<p>Alternatively, each pipe in Cashmere is also exported from <code>PipesModule</code>, if you wish to import all pipes from the <code>@healthcatalyst/cashmere</code> package:</p>
+<pre><code class="language-ts">import {NgModule} from '@angular/core';
+import {PipesModule} from '@healthcatalyst/cashmere';
+
+@NgModule({
+    exports: [PipesModule]
+})
+export class CashmereModule {}
+</code></pre>
+<h4>Edge cases</h4>
+<p>If the NullOrEmptyStringPipe is given a value other than a <code>string</code>, it will return the value unchanged.</p>
